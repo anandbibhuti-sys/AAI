@@ -4,7 +4,7 @@ import random
 
 
 def get_time_of_day():
-  """Return the current part of the day."""
+  """Return which part of the day it is."""
   current_hour = datetime.datetime.now().hour
 
   if 5 <= current_hour < 12:
@@ -18,7 +18,7 @@ def get_time_of_day():
 
 
 def get_greeting(name):
-  """Print a greeting appropriate for the current time."""
+  """Print a greeting for user based upon time."""
   time_of_day = get_time_of_day()
 
   print("  ---------------")
@@ -35,7 +35,9 @@ def get_greeting(name):
 
 
 def get_recommendation(age, time_of_day):
-  """Print a recommendation based on the user's age and the current time."""
+  """
+  Print a recommendation based on the user's age and the current time.
+  """
   if age < 18:
     if time_of_day == "morning":
       print("How are you doing today ? Get ready for school !!")
@@ -57,7 +59,10 @@ def get_recommendation(age, time_of_day):
 
 
 def motivational_message(time_of_day):
-  """Print a random motivational quote for the current part of the day."""
+  """
+  Print a random motivational quote for the current part of the day.
+  Print this only for adults. Motivational quotes is being skipped for kids.
+  """
   morning = [
     "With the new day comes new strength and new thoughts. — Eleanor Roosevelt",
     "Either you run the day, or the day runs you. — Jim Rohn",
@@ -141,6 +146,7 @@ def main():
       motivational_message(time_of_day)
     print("  ---------------")
   except KeyboardInterrupt:
+    """ Graceful exit in case ctrl+c is used.  """
     print("\nProgram stopped by user.")
 
 
